@@ -5,19 +5,61 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        String s1 = getInput("Enter a number: ");
+        String s2 = getInput("Enter a number: ");
+        String op = getInput("Choose the operation (+ - * /): ");
 
-        Scanner sc = new Scanner (System.in);
-        System.out.print("Enter a numeric value: ");
-        String input1 = sc.nextLine();
-        double d1 = Double.parseDouble(input1);
+        double result = 0;
 
-        System.out.print("Enter a numeric value: ");
-        String input2 = sc.nextLine();
-        double d2 = Double.parseDouble(input2);
+        switch (op) {
+            case "+":
+                result = addValues(s1, s2);
+                break;
+            case "-":
+                result = subtractValues(s1, s2);
+                break;
+            case "*":
+                result = multiplyValues(s1, s2);
+                break;
+            case "/":
+                result = divideValues(s1, s2);
+                break;
+            default:
+                System.out.println("Invalid input");
+                return;
+        }
 
-        double result = (d1*d1)+(2*d1*d2)+(d2*d2);
-
-        System.out.println("The answer is "+ result);
-
+        System.out.println("The answer is " + result);
     }
+
+    private static String getInput(String prompt) {
+        System.out.print(prompt);
+        Scanner sc = new Scanner(System.in);
+        return sc.nextLine();
+    }
+
+    private static double addValues(String s1, String s2) {
+        double d1 = Double.parseDouble(s1);
+        double d2 = Double.parseDouble(s2);
+        return d1 + d2;
+    }
+
+    private static double subtractValues(String s1, String s2) {
+        double d1 = Double.parseDouble(s1);
+        double d2 = Double.parseDouble(s2);
+        return d1 - d2;
+    }
+
+    private static double multiplyValues(String s1, String s2) {
+        double d1 = Double.parseDouble(s1);
+        double d2 = Double.parseDouble(s2);
+        return d1 * d2;
+    }
+
+    private static double divideValues(String s1, String s2) {
+        double d1 = Double.parseDouble(s1);
+        double d2 = Double.parseDouble(s2);
+        return d1 / d2;
+    }
+
 }
